@@ -7,5 +7,24 @@
 # Backup files
 *~
 
+
+# Auto-save files
+# See: https://stackoverflow.com/questions/22175365/gitignore-regex-for-emacs-temporary-files
+#  \#*#
+#  .#*
+
+# But I'm not ignoring them since I want to know if I'm in the middle
+# of an edit. It's too easy to miss something because I forgot to save
+# a buffer. I'm unlikely to commit these obnoxious-looking filenemaes.
+
+
 # Undo-tree save-files
 *.~undo-tree
+
+# History
+history
+.emacs.desktop
+.emacs.desktop.lock
+
+# Package locations
+elpa
