@@ -1,7 +1,7 @@
 # .emacs.d
 
 To use this on a new computer, make sure you have git installed and
-clone this prepository:
+clone this repository:
 
 ```
 git clone https://github.com/jericson/.emacs.d.git
@@ -12,7 +12,7 @@ This will set up Emacs the way I like it.
 ## Installing when you already have .emacs.d
 
 Git won't clone a repository over an existing directory, so this won't
-work if you've arleady run Emacs. The easiest solution is:
+work if you've already run Emacs. The easiest solution is:
 
 1. Quit Emacs.
 2. Move/rename `.emacs.d` to something else.
@@ -29,3 +29,6 @@ Please fork this repository!
 I will gladly accept PRs that work with my workflow. I will
 reluctantly change my workflow if there's a compelling reason to do
 so. ;-)
+
+<!--  LocalWords:  emacs PRs
+ -->

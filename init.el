@@ -242,7 +242,7 @@ buffer. For more information, see the documentation of `query-replace-regexp'"
  '(align-to-tab-stop nil)
  '(calendar-latitude 34.1808)
  '(calendar-longitude -118.309)
- '(ispell-program-name "/usr/local/bin/aspell")
+ '(ispell-program-name "aspell")
  '(metar-units
    '((length . ft)
      (pressure . hPa)
