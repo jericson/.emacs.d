@@ -227,7 +227,17 @@ buffer. For more information, see the documentation of `query-replace-regexp'"
         (goto-char end)
         (newline)
         (goto-char start)))
-  
+
+;; https://stackoverflow.com/questions/2471557/how-to-undo-fill-paragraph-in-emacs/2478549#2478549
+(defun unfill-paragraph ()
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(defun unfill-region ()
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-region (region-beginning) (region-end) nil)))
 
 (provide '.emacs)
 
