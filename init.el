@@ -6,7 +6,7 @@
 ;;; Commentary:
 
 ;; Stolen from:
-;; https://sites.google.com/site/steveyegge2/effective-emacs 
+;; https://sites.google.com/site/steveyegge2/effective-emacs
 
 ;; Item 1: http://www.manicai.net/comp/swap-caps-ctrl.html
 
@@ -44,7 +44,7 @@
 
 ;; Item 8: M-x describe-bindings
 ;;         M-x describe-key
-;;         M-x apropos-command 
+;;         M-x apropos-command
 ;;         M-x info.
 
 ;; Item 9
@@ -72,6 +72,7 @@
 
 
 (setq-default indent-tabs-mode nil)
+(setq column-number-mode t)
 
 
 ;;;
@@ -79,21 +80,27 @@
 ; http://emacs.stackexchange.com/a/642/2
 (desktop-save-mode 1)
 (savehist-mode 1)
-(add-to-list 'savehist-additional-variables 'kill-ring) 
+(add-to-list 'savehist-additional-variables 'kill-ring)
+
+; Source - https://stackoverflow.com/a/7747259
+; Posted by vhallac
+; Retrieved 2026-06-18, License - CC BY-SA 3.0
+(add-hook 'before-save-hook
+          'delete-trailing-whitespace)
 
 ; http://www.emacswiki.org/emacs/AlignCommands
 (defun align-repeat (start end regexp)
-    "Repeat alignment with respect to 
+    "Repeat alignment with respect to
      the given regular expression."
     (interactive "r\nsAlign regexp: ")
-    (align-regexp start end 
+    (align-regexp start end
         (concat "\\(\\s-*\\)" regexp) 1 1 t))
 
 (defun align-right (start end)
-    "Repeat alignment with respect to 
+    "Repeat alignment with respect to
      the given regular expression."
     (interactive "r")
-    (align-regexp start end 
+    (align-regexp start end
         (concat "\\(\\s-*\\)\\([^ ]+\\)") -2 0 t))
 
 (defun align-decimal (start end)
@@ -169,7 +176,7 @@ buffer. For more information, see the documentation of `query-replace-regexp'"
   (interactive)
   (defun replace-all (regex to-string)
     (perform-replace regex to-string t t nil nil nil (point-min) (point-max)))
-                                   
+
   (replace-all "<span [^>]*>" "")
   (replace-all "</span>" "" )
   (replace-all "</p>" "\n\n" )
@@ -204,10 +211,10 @@ buffer. For more information, see the documentation of `query-replace-regexp'"
   (replace-all "</thead>" "|---:|")
     (replace-all "<tbody [^>]*>" "")
   (replace-all "</tbody>" "")
-  
-  
+
+
   (replace-all "<a [^>]**href=\"\\([^\"]*\\)\"[^>]*>\\([^<]*\\)</a>" "[\\2](\\1)")
-  
+
   (replace-all "…" "...")
   (replace-all "’" "'")
   (replace-all "[“”]" "\"")
@@ -254,14 +261,14 @@ buffer. For more information, see the documentation of `query-replace-regexp'"
  '(calendar-longitude -118.309)
  '(ispell-program-name "aspell")
  '(metar-units
-   '((length . ft)
-     (pressure . hPa)
-     (speed . mph)
-     (temperature . degF)))
+   '((length . ft) (pressure . hPa) (speed . mph) (temperature . degF)))
  '(newsticker-url-list
-   '(("Nate Silver" "http://fivethirtyeight.com/contributors/nate-silver/feed/" nil nil nil)))
+   '(("Nate Silver"
+      "http://fivethirtyeight.com/contributors/nate-silver/feed/" nil
+      nil nil)))
  '(package-selected-packages
-   '(yang-mode yaml-mode lua-mode editorconfig use-package metar markdown-mode)))
+   '(editorconfig lsp-mode lua-mode markdown-mode metar use-package
+                  yaml-mode yang-mode)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

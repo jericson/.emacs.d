@@ -3,7 +3,7 @@
 (require 'package)
 
 (add-to-list 'package-archives
-             '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
