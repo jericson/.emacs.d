@@ -88,6 +88,15 @@
 (add-hook 'before-save-hook
           'delete-trailing-whitespace)
 
+; https://idiomdrottning.org/bad-emacs-defaults
+(make-directory "~/.emacs_backups/" t)
+(make-directory "~/.emacs_autosave/" t)
+(setq auto-save-file-name-transforms '((".*" "~/.emacs_autosave/" t)))
+(setq backup-directory-alist '(("." . "~/.emacs_backups/")))
+(setq backup-by-copying t)
+(setq require-final-newline t)
+
+
 ; http://www.emacswiki.org/emacs/AlignCommands
 (defun align-repeat (start end regexp)
     "Repeat alignment with respect to
